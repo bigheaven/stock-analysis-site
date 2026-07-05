@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "name": "腾讯控股",
+    "code": "0700.HK",
+    "exchange": "香港联交所",
+    "currency": "HKD",
+    "currentPrice": 431.2,
+    "ytdChangePct": -27.17,
+    "dataAsOf": "2026-07-05",
+    "priceAsOf": "2026-07-03",
+    "disclaimer": "基于公开信息分析，不构成投资建议",
+    "summary": "四年回购超 3000 亿、股价却跌至 400 出头——基本面没崩，AI 投入吞噬 FCF + 资金切向 AI 硬件 + Prosus 减持的三重折价。"
+  },
+  "kpi": [
+    { "label": "当前价", "value": "HK$431.2", "sub": "2026-07-03 收盘" },
+    { "label": "年初至今", "value": "-27.2%", "sub": "恒生科技 -18.9%", "tone": "bad" },
+    { "label": "距高点", "value": "-37%", "sub": "高点 677.7 (2025-10)", "tone": "bad" },
+    { "label": "市值蒸发", "value": "2.2 万亿", "sub": "港元，约 3090 亿美元", "tone": "bad" },
+    { "label": "静态 PE", "value": "15.48", "sub": "TTM EPS 27.86" },
+    { "label": "前瞻 PE", "value": "12.32", "sub": "前瞻 < 静态 = 增速放缓预期", "tone": "warn" },
+    { "label": "股息率", "value": "1.23%", "sub": "末期 HK$5.30，派息率 19%" },
+    { "label": "净现金", "value": "1071 亿", "sub": "人民币，ROE 20.5%", "tone": "good" }
+  ],
+  "price": {
+    "note": "2020—2026 月度收盘价（港元），含三次大跌事件标注",
+    "series": [
+      { "date": "2020-01", "price": 390 },
+      { "date": "2020-07", "price": 530 },
+      { "date": "2021-02", "price": 704.6 },
+      { "date": "2021-07", "price": 550 },
+      { "date": "2021-08", "price": 420 },
+      { "date": "2021-12", "price": 450 },
+      { "date": "2022-03", "price": 380 },
+      { "date": "2022-06", "price": 350 },
+      { "date": "2022-10", "price": 198 },
+      { "date": "2022-12", "price": 330 },
+      { "date": "2023-07", "price": 330 },
+      { "date": "2023-12", "price": 294 },
+      { "date": "2024-01", "price": 260 },
+      { "date": "2024-05", "price": 390 },
+      { "date": "2024-10", "price": 420 },
+      { "date": "2025-01", "price": 380 },
+      { "date": "2025-05", "price": 510 },
+      { "date": "2025-10", "price": 677.7 },
+      { "date": "2026-01", "price": 530 },
+      { "date": "2026-03", "price": 500 },
+      { "date": "2026-05", "price": 420 },
+      { "date": "2026-06", "price": 430 },
+      { "date": "2026-07", "price": 431.2 }
+    ],
+    "events": [
+      { "date": "2021-02", "price": 704.6, "label": "高点 704.6", "type": "peak" },
+      { "date": "2022-10", "price": 198, "label": "第一次低点 198", "type": "trough", "detail": "反垄断+教培+精神鸦片+零疫情+ADR+加息+Prosus 启动" },
+      { "date": "2024-01", "price": 260, "label": "第二次低点 260", "type": "trough", "detail": "游戏管理办法草案 (2023/12/22 单日 -12.35%)" },
+      { "date": "2025-10", "price": 677.7, "label": "反弹高点 677.7", "type": "peak" },
+      { "date": "2026-05", "price": 420, "label": "第三次低点 420", "type": "trough", "detail": "AI 投入吞噬 FCF + 资金切 AI 硬件 + 强美元" },
+      { "date": "2026-07", "price": 431.2, "label": "当前 431.2", "type": "current" }
+    ]
+  },
+  "buyback": {
+    "note": "腾讯年回购金额（亿港元）vs 年均价股价。2026 为 H1 数据。",
+    "yearly": [
+      { "year": "2022", "amount": 338, "shares": "1.07 亿股", "avgPrice": 330 },
+      { "year": "2023", "amount": 494, "shares": "—", "avgPrice": 340 },
+      { "year": "2024", "amount": 1120, "shares": "3.07 亿股", "avgPrice": 370 },
+      { "year": "2025", "amount": 800, "shares": "1.53 亿股", "avgPrice": 500 },
+      { "year": "2026", "amount": 244, "shares": "5003 万股 (H1)", "avgPrice": 460, "note": "H1，32 个交易日连续" }
+    ],
+    "total4yr": "~2752 亿（2022—2025）+ 2026 H1 244 亿 ≈ 3000 亿",
+    "divergence": "回购金额逐年上升（338→1120→800），股价却从 2025/10 高点 -37%——回购被 Prosus 减持对冲 + AI 资本开支吞噬 FCF。"
+  },
+  "shareholders": {
+    "note": "Prosus/Naspers 持股比例下降曲线（2022/6 启动开放式减持）",
+    "stake": [
+      { "date": "2022-06", "pct": 28.78, "label": "启动减持" },
+      { "date": "2022-12", "pct": 27.0, "label": "跌破 27%" },
+      { "date": "2023-04", "pct": 25.99, "label": "跌破 26%" },
+      { "date": "2023-12", "pct": 24.99, "label": "跌破 25%" },
+      { "date": "2024-09", "pct": 24.3, "label": "—" },
+      { "date": "2025-01", "pct": 23.99, "label": "跌破 24%" },
+      { "date": "2025-07", "pct": 22.99883, "label": "跌破 23%" }
+    ],
+    "pace": "日均成交量 3—5%，年均约 1.9 个百分点",
+    "totalSold": "3 年累计套现约 1840 亿港元，年均 ~610 亿",
+    "catalyst": "2026/6/23 Kold Investments 公开信施压 Prosus 加速 NAV 折价套利——潜在加速催化",
+    "netBuyback": "腾讯年回购 800 亿 > Prosus 年减持 ~600 亿，净回购为正；但被 AI 资本开支二次抵消"
+  },
+  "valuation": {
+    "note": "三档情景估值（2026E），含概率与加权期望",
+    "scenarios": [
+      { "name": "悲观", "probability": 0.20, "rangeLow": 280, "rangeHigh": 340, "mid": 310, "pe": "9—10x", "trigger": "AI 持续无产出 + Prosus 加速 + 地缘黑天鹅 + 全球流动性收紧" },
+      { "name": "中性", "probability": 0.55, "rangeLow": 380, "rangeHigh": 470, "mid": 425, "pe": "12—14x", "trigger": "当前盈利预期延续，AI 渐进兑现，资金切换缓和" },
+      { "name": "乐观", "probability": 0.25, "rangeLow": 560, "rangeHigh": 700, "mid": 630, "pe": "18—22x", "trigger": "AI 杀手级应用落地 + 恒科资金回流 + Prosus 减持尾声" }
+    ],
+    "weightedExpected": 455,
+    "currentPrice": 431.2,
+    "verdict": "偏低估，但属'周期+叙事双杀下的低估'，修复需 AI 兑现或资金切换",
+    "sellSideTargets": {
+      "cmbigm": { "target": 750, "method": "SOTP", "date": "2026-05-14" },
+      "east": { "rating": "Buy", "pe2026": "14x", "date": "2026-06-26" },
+      "consensus": { "avg": 700.54, "low": 424.75, "high": 882.84 }
+    }
+  },
+  "pressure": {
+    "note": "五重压制排序（回购托价失效的原因）",
+    "factors": [
+      { "rank": 1, "name": "资金结构性切换 AI 硬件", "weight": 5, "detail": "2026 H1 恒生科技 -18.9%，韩国 KOSPI +101%；腾讯作为恒科第一权重被抽血" },
+      { "rank": 2, "name": "AI 投入黑洞 + 增长叙事缺失", "weight": 5, "detail": "Q1 AI 投入 >650 亿 > FCF 567 亿；元宝 MAU 5735 万 vs 豆包 3.45 亿" },
+      { "rank": 3, "name": "强美元 + 高美债利率", "weight": 4, "detail": "港股离岸市场，国际资本占 60%，分母端压制估值" },
+      { "rank": 4, "name": "Prosus 慢性减持", "weight": 3, "detail": "年均 ~600 亿卖压，Kold 公开信或致加速" },
+      { "rank": 5, "name": "IPO + 解禁流动性抽离", "weight": 3, "detail": "2026 H1 IPO 募资 2099 亿，7 月近 2600 亿解禁" }
+    ]
+  },
+  "regulatory": {
+    "note": "影响腾讯的关键监管/地缘事件线",
+    "events": [
+      { "date": "2021-07", "event": "反垄断密集落地", "impact": "虎牙斗鱼合并叫停、音乐独家版权解除，当月 -17.98%", "severity": "high" },
+      { "date": "2021-08-03", "event": "《精神鸦片》文", "impact": "腾讯一度 -10%，未成年保护'最强政策'随后出台", "severity": "high" },
+      { "date": "2022-06-27", "event": "Prosus 启动开放式减持", "impact": "长期结构性卖压开始", "severity": "medium" },
+      { "date": "2023-12-22", "event": "《网络游戏管理办法》草案", "impact": "单日 -12.35%，市值蒸发 3600 亿港元", "severity": "high" },
+      { "date": "2025-01-06", "event": "五角大楼 1260H 清单", "impact": "腾讯被列入'中国军事企业'，次日 -7.28% 至 379.6", "severity": "medium" },
+      { "date": "2026-03-18", "event": "财报 AI 投入翻倍表态", "impact": "刘炽平'回购让位 AI'，市场解读股东回报缩水", "severity": "medium" }
+    ]
+  },
+  "sevenQuestions": [
+    { "q": "Q1 为何四年 3000 亿回购股价还跌？", "a": "五重压制（资金切 AI 硬件 + AI 烧钱 + 强美元 + Prosus + IPO 解禁），且回购被对冲 + AI 资本开支二次抵消，净回购仅百亿级。", "link": "02-tencent-buyback-price-divergence" },
+    { "q": "Q2 基本面崩坏了吗？", "a": "没有。2025 营收 +14%、Non-IFRS 经营利润 +18%、净现金 1071 亿。问题是 AI 叙事缺失，不是盈利丧失。", "link": "01-tencent-fundamentals" },
+    { "q": "Q3 是否低估？", "a": "偏低估，PE 12—15 倍处历史 10% 分位，但'有理由的便宜'——修复需 AI 兑现或资金切换。", "link": "04-tencent-valuation" },
+    { "q": "Q4 现在买还是等？", "a": "左侧分批：420—450 建底仓 / 360—400 加仓 / 280—340 重仓，留 20% 现金，破 200 止损。", "link": "06-tencent-trading-strategy" },
+    { "q": "Q5 三次大跌有何不同？", "a": "2022 戴维斯双杀 / 2024 政策情绪坑 / 2026 叙事折价，主驱动完全不同。", "link": "03-tencent-crash-history" },
+    { "q": "Q6 今年会破 200 吗？", "a": "小概率（< 15%），需四重黑天鹅共振；现实支撑区 350—380。", "link": "03-tencent-crash-history" },
+    { "q": "Q7 Prosus 减持冲击多大？", "a": "慢性卖压，年均 ~600 亿，腾讯回购部分对冲，Kold 公开信或致加速；持股 23% 距尾声区（20% 下）已不远。", "link": "05-tencent-prosus-overhang" }
+  ],
+  "reports": [
+    { "id": "00-tencent-seven-questions-summary", "title": "七问七答总纲", "desc": "全部问题的速答与导航" },
+    { "id": "01-tencent-fundamentals", "title": "基本面评估", "desc": "印钞机仍在转，钱被 AI 黑洞吸走" },
+    { "id": "02-tencent-buyback-price-divergence", "title": "回购 vs 股价背离", "desc": "3000 亿为何托不住 400 出头" },
+    { "id": "03-tencent-crash-history", "title": "历次大跌对比", "desc": "2022 破 200 / 2024 见 260 / 2026 跌至 420" },
+    { "id": "04-tencent-valuation", "title": "估值研判", "desc": "PE 14 倍是低估还是价值陷阱" },
+    { "id": "05-tencent-prosus-overhang", "title": "Prosus 减持专题", "desc": "挂在腾讯头顶的慢性卖压" },
+    { "id": "06-tencent-trading-strategy", "title": "交易策略与仓位", "desc": "分批建仓区间 + 止损纪律 + 检查清单" }
+  ]
+}

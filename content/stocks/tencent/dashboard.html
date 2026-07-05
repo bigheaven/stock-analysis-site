@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>腾讯控股 (0700.HK) · 深度研判仪表盘</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --accent: #58a6ff;
+    --good: #3fb950;
+    --bad: #f85149;
+    --warn: #d29922;
+    --grid: 2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  header {
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .title-row { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; }
+  h1 { font-size: 1.8rem; font-weight: 700; }
+  .code { color: var(--text-dim); font-size: 1.1rem; }
+  .price-badge {
+    margin-left: auto;
+    text-align: right;
+  }
+  .price { font-size: 2rem; font-weight: 700; }
+  .ytd { font-size: 1.1rem; font-weight: 600; }
+  .ytd.bad { color: var(--bad); }
+  .summary { color: var(--text-dim); margin-top: 12px; font-size: 0.95rem; }
+  .disclaimer {
+    margin-top: 16px;
+    padding: 10px 14px;
+    background: rgba(210, 153, 34, 0.1);
+    border-left: 3px solid var(--warn);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+  .disclaimer strong { color: var(--warn); }
+  .data-asof { color: var(--text-dim); font-size: 0.8rem; margin-top: 8px; }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .kpi {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .kpi .label { font-size: 0.78rem; color: var(--text-dim); }
+  .kpi .value { font-size: 1.4rem; font-weight: 700; margin-top: 4px; }
+  .kpi .sub { font-size: 0.72rem; color: var(--text-dim); margin-top: 2px; }
+  .kpi.good .value { color: var(--good); }
+  .kpi.bad .value { color: var(--bad); }
+  .kpi.warn .value { color: var(--warn); }
+
+  .chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .chart-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .chart-card.full { grid-column: 1 / -1; }
+  .chart-card h2 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+  .chart-card .note { font-size: 0.78rem; color: var(--text-dim); margin-bottom: 8px; }
+  .chart { width: 100%; height: 360px; }
+  .chart-card.full .chart { height: 420px; }
+
+  section.qna, section.reports {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  section h2 { font-size: 1.2rem; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  .qa { margin-bottom: 14px; }
+  .qa .q { font-weight: 600; color: var(--accent); font-size: 0.95rem; }
+  .qa .a { color: var(--text); font-size: 0.9rem; margin-top: 2px; }
+  .qa .a a { color: var(--accent); text-decoration: none; }
+  .qa .a a:hover { text-decoration: underline; }
+
+  .report-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+  }
+  .report-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s;
+  }
+  .report-card:hover { border-color: var(--accent); }
+  .report-card .t { font-weight: 600; font-size: 0.92rem; }
+  .report-card .d { font-size: 0.78rem; color: var(--text-dim); margin-top: 2px; }
+
+  footer { color: var(--text-dim); font-size: 0.78rem; text-align: center; padding: 20px 0; }
+
+  @media (max-width: 768px) {
+    .chart-grid { grid-template-columns: 1fr; }
+    .price-badge { margin-left: 0; text-align: left; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="title-row">
+      <h1 id="title">腾讯控股</h1>
+      <span class="code" id="code">0700.HK</span>
+      <div class="price-badge">
+        <div class="price" id="price">HK$—</div>
+        <div class="ytd bad" id="ytd">—</div>
+      </div>
+    </div>
+    <div class="summary" id="summary"></div>
+    <div class="disclaimer">
+      <strong>免责声明</strong>：<span id="disclaimer"></span>
+    </div>
+    <div class="data-asof" id="dataAsOf"></div>
+  </header>
+
+  <div class="kpi-grid" id="kpiGrid"></div>
+
+  <div class="chart-grid">
+    <div class="chart-card full">
+      <h2>📈 价格时间线 · 三次大跌标注</h2>
+      <div class="note">2020—2026 月度收盘价（港元）。点击事件标注可跳转大跌对比报告。</div>
+      <div class="chart" id="chart-price"></div>
+    </div>
+
+    <div class="chart-card">
+      <h2>💰 回购 vs 股价背离</h2>
+      <div class="note">回购金额逐年上升，股价却下行——被 Prosus 对冲 + AI 资本开支抵消。</div>
+      <div class="chart" id="chart-buyback"></div>
+    </div>
+
+    <div class="chart-card">
+      <h2>📉 Prosus 持股下降曲线</h2>
+      <div class="note">2022/6 启动开放式减持，年均约 1.9 个百分点。</div>
+      <div class="chart" id="chart-prosus"></div>
+    </div>
+
+    <div class="chart-card">
+      <h2>📊 三档情景估值（概率加权）</h2>
+      <div class="note">悲观 20% / 中性 55% / 乐观 25% → 加权期望 455 港元。</div>
+      <div class="chart" id="chart-scenario"></div>
+    </div>
+
+    <div class="chart-card">
+      <h2>⚖️ 五重压制排序</h2>
+      <div class="note">回购托价失效的五重压制因素及权重。</div>
+      <div class="chart" id="chart-pressure"></div>
+    </div>
+
+    <div class="chart-card full">
+      <h2>🗓️ 监管/地缘事件时间线</h2>
+      <div class="note">影响腾讯的关键政策与地缘事件。</div>
+      <div class="chart" id="chart-regulatory"></div>
+    </div>
+  </div>
+
+  <section class="qna">
+    <h2>七问七答速览</h2>
+    <div id="qnaList"></div>
+  </section>
+
+  <section class="reports">
+    <h2>报告全文</h2>
+    <div class="report-grid" id="reportGrid"></div>
+  </section>
+
+  <footer>
+    数据来源：腾讯财报/港交所披露易、东方证券/招商国际研报、Yahoo Finance、Bloomberg、Reuters 等。<br>
+    详见各报告引用源。本仪表盘不构成投资建议。
+  </footer>
+
+<script>
+const BASE = './';
+const REPORT_BASE = './';  // Quartz 渲染后报告页同目录
+
+// 通用 ECharts 暗色配置
+const baseTextStyle = { color: '#e6edf3', fontFamily: '-apple-system, "PingFang SC", sans-serif' };
+const axisLine = { lineStyle: { color: '#30363d' } };
+const splitLine = { lineStyle: { color: 'rgba(48,54,61,0.6)' } };
+
+function initChart(id) {
+  const el = document.getElementById(id);
+  const chart = echarts.init(el, null, { renderer: 'canvas' });
+  window.addEventListener('resize', () => chart.resize());
+  return chart;
+}
+
+function renderHeader(d) {
+  document.getElementById('title').textContent = d.meta.name;
+  document.getElementById('code').textContent = d.meta.code;
+  document.getElementById('price').textContent = 'HK$' + d.meta.currentPrice;
+  const ytdEl = document.getElementById('ytd');
+  ytdEl.textContent = '年初至今 ' + d.meta.ytdChangePct + '%';
+  ytdEl.className = 'ytd ' + (d.meta.ytdChangePct < 0 ? 'bad' : 'good');
+  document.getElementById('summary').textContent = d.meta.summary;
+  document.getElementById('disclaimer').textContent = d.meta.disclaimer;
+  document.getElementById('dataAsOf').textContent =
+    '数据截止：' + d.meta.dataAsOf + '（价格截至 ' + d.meta.priceAsOf + '）';
+}
+
+function renderKpi(d) {
+  const grid = document.getElementById('kpiGrid');
+  grid.innerHTML = d.kpi.map(k => `
+    <div class="kpi ${k.tone || ''}">
+      <div class="label">${k.label}</div>
+      <div class="value">${k.value}</div>
+      <div class="sub">${k.sub}</div>
+    </div>
+  `).join('');
+}
+
+function renderPrice(d) {
+  const chart = initChart('chart-price');
+  const series = d.price.series.map(s => [s.date, s.price]);
+  const eventPoints = d.price.events.map(e => ({
+    name: e.label,
+    coord: [e.date, e.price],
+    itemStyle: { color: e.type === 'peak' ? '#3fb950' : e.type === 'current' ? '#58a6ff' : '#f85149' },
+    label: { show: true, formatter: e.label, position: 'top', color: '#e6edf3', fontSize: 10 }
+  }));
+  chart.setOption({
+    tooltip: { trigger: 'axis', backgroundColor: '#161b22', borderColor: '#30363d', textStyle: baseTextStyle },
+    grid: { left: 50, right: 30, top: 50, bottom: 40 },
+    xAxis: { type: 'category', data: d.price.series.map(s => s.date), axisLine, axisLabel: baseTextStyle },
+    yAxis: { type: 'value', name: 'HK$', axisLine, splitLine, axisLabel: baseTextStyle },
+    series: [{
+      type: 'line',
+      data: series,
+      smooth: true,
+      symbol: 'none',
+      lineStyle: { color: '#58a6ff', width: 2 },
+      areaStyle: { color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [
+        { offset: 0, color: 'rgba(88,166,255,0.3)' }, { offset: 1, color: 'rgba(88,166,255,0)' }
+      ]}},
+      markPoint: { data: eventPoints, symbolSize: 10 }
+    }]
+  });
+}
+
+function renderBuyback(d) {
+  const chart = initChart('chart-buyback');
+  const years = d.buyback.yearly.map(y => y.year);
+  const amounts = d.buyback.yearly.map(y => y.amount);
+  const prices = d.buyback.yearly.map(y => y.avgPrice);
+  chart.setOption({
+    tooltip: { trigger: 'axis', backgroundColor: '#161b22', borderColor: '#30363d', textStyle: baseTextStyle },
+    legend: { data: ['回购金额(亿港元)', '年均股价(港元)'], textStyle: baseTextStyle, top: 0 },
+    grid: { left: 50, right: 50, top: 40, bottom: 30 },
+    xAxis: { type: 'category', data: years, axisLine, axisLabel: baseTextStyle },
+    yAxis: [
+      { type: 'value', name: '回购(亿)', axisLine, splitLine, axisLabel: baseTextStyle },
+      { type: 'value', name: '股价(HK$)', axisLine, splitLine: { show: false }, axisLabel: baseTextStyle }
+    ],
+    series: [
+      { name: '回购金额(亿港元)', type: 'bar', data: amounts, itemStyle: { color: '#d29922' } },
+      { name: '年均股价(港元)', type: 'line', yAxisIndex: 1, data: prices, smooth: true, lineStyle: { color: '#f85149', width: 2 }, itemStyle: { color: '#f85149' } }
+    ]
+  });
+}
+
+function renderProsus(d) {
+  const chart = initChart('chart-prosus');
+  const s = d.shareholders;
+  chart.setOption({
+    tooltip: { trigger: 'axis', backgroundColor: '#161b22', borderColor: '#30363d', textStyle: baseTextStyle,
+      formatter: p => p[0].name + '<br/>持股: ' + p[0].value + '%' },
+    grid: { left: 50, right: 30, top: 30, bottom: 40 },
+    xAxis: { type: 'category', data: s.stake.map(x => x.date), axisLine, axisLabel: baseTextStyle },
+    yAxis: { type: 'value', name: '持股%', min: 22, max: 29, axisLine, splitLine, axisLabel: baseTextStyle },
+    series: [{
+      type: 'line', data: s.stake.map(x => x.pct), smooth: true,
+      lineStyle: { color: '#f85149', width: 2 }, itemStyle: { color: '#f85149' },
+      areaStyle: { color: 'rgba(248,81,73,0.2)' },
+      markPoint: { data: s.stake.filter(x => x.label && x.label !== '—').map(x => ({
+        name: x.label, coord: [x.date, x.pct], value: x.label,
+        label: { show: true, formatter: x.label, fontSize: 9, color: '#e6edf3' }
+      })), symbolSize: 8 }
+    }]
+  });
+}
+
+function renderScenario(d) {
+  const chart = initChart('chart-scenario');
+  const v = d.valuation;
+  const data = v.scenarios.map(s => ({
+    name: s.name, value: s.mid,
+    probability: s.probability, range: [s.rangeLow, s.rangeHigh], pe: s.pe, trigger: s.trigger
+  }));
+  chart.setOption({
+    tooltip: { backgroundColor: '#161b22', borderColor: '#30363d', textStyle: baseTextStyle,
+      formatter: p => {
+        const s = data[p.dataIndex];
+        return `<b>${s.name}</b> (${(s.probability*100).toFixed(0)}%)<br/>价区: ${s.range[0]}—${s.range[1]}<br/>中值: ${s.value}<br/>PE: ${s.pe}<br/>触发: ${s.trigger}`;
+      }
+    },
+    grid: { left: 50, right: 30, top: 30, bottom: 30 },
+    xAxis: { type: 'category', data: data.map(s => s.name + '\n' + (s.probability*100).toFixed(0) + '%'), axisLine, axisLabel: baseTextStyle },
+    yAxis: { type: 'value', name: 'HK$', min: 200, axisLine, splitLine, axisLabel: baseTextStyle },
+    series: [{
+      type: 'bar', data: data.map((s, i) => ({
+        value: s.value, itemStyle: { color: ['#f85149', '#8b949e', '#3fb950'][i] }
+      })),
+      barWidth: '40%',
+      markLine: {
+        data: [
+          { yAxis: v.currentPrice, name: '当前', lineStyle: { color: '#58a6ff', type: 'dashed' }, label: { formatter: '当前 ' + v.currentPrice, color: '#58a6ff' } },
+          { yAxis: v.weightedExpected, name: '加权期望', lineStyle: { color: '#d29922', type: 'dotted' }, label: { formatter: '加权期望 ' + v.weightedExpected, color: '#d29922' } }
+        ]
+      }
+    }]
+  });
+}
+
+function renderPressure(d) {
+  const chart = initChart('chart-pressure');
+  const factors = d.pressure.factors.slice().reverse();
+  chart.setOption({
+    tooltip: { backgroundColor: '#161b22', borderColor: '#30363d', textStyle: baseTextStyle,
+      formatter: p => p.data.detail },
+    grid: { left: 120, right: 60, top: 20, bottom: 30 },
+    xAxis: { type: 'value', max: 5, axisLine, splitLine, axisLabel: { ...baseTextStyle, formatter: '{value} ★' } },
+    yAxis: { type: 'category', data: factors.map(f => f.name), axisLine, axisLabel: baseTextStyle },
+    series: [{
+      type: 'bar', data: factors.map(f => ({ value: f.weight, detail: f.detail, itemStyle: { color: '#f85149' } })),
+      barWidth: '60%',
+      label: { show: true, position: 'right', formatter: p => '★'.repeat(p.value), color: '#d29922', fontSize: 12 }
+    }]
+  });
+}
+
+function renderRegulatory(d) {
+  const chart = initChart('chart-regulatory');
+  const events = d.regulatory.events;
+  const sevColor = { high: '#f85149', medium: '#d29922', low: '#8b949e' };
+  chart.setOption({
+    tooltip: { backgroundColor: '#161b22', borderColor: '#30363d', textStyle: baseTextStyle,
+      formatter: p => `<b>${p.data.event}</b><br/>${p.data.date}<br/>影响: ${p.data.impact}` },
+    grid: { left: 60, right: 40, top: 30, bottom: 60 },
+    xAxis: { type: 'category', data: events.map(e => e.date), axisLine, axisLabel: { ...baseTextStyle, rotate: 30 } },
+    yAxis: { type: 'value', show: false, min: 0, max: 4 },
+    series: [{
+      type: 'scatter',
+      data: events.map((e, i) => ({
+        value: [e.date, e.severity === 'high' ? 3 : e.severity === 'medium' ? 2 : 1],
+        event: e.event, date: e.date, impact: e.impact,
+        itemStyle: { color: sevColor[e.severity], opacity: 0.9 }
+      })),
+      symbolSize: 22,
+      label: { show: true, formatter: p => p.data.event, position: 'top', color: '#e6edf3', fontSize: 10, rotate: 0, distance: 8 },
+      markLine: { silent: true, symbol: 'none', lineStyle: { color: '#30363d', type: 'solid' },
+        data: [{ yAxis: 0 }] }
+    }]
+  });
+}
+
+function renderQna(d) {
+  const list = document.getElementById('qnaList');
+  list.innerHTML = d.sevenQuestions.map(q => `
+    <div class="qa">
+      <div class="q">${q.q}</div>
+      <div class="a">${q.a} <a href="${REPORT_BASE}${q.link}.html">→ 详见</a></div>
+    </div>
+  `).join('');
+}
+
+function renderReports(d) {
+  const grid = document.getElementById('reportGrid');
+  grid.innerHTML = d.reports.map(r => `
+    <a class="report-card" href="${REPORT_BASE}${r.id}.html">
+      <div class="t">${r.title}</div>
+      <div class="d">${r.desc}</div>
+    </a>
+  `).join('');
+}
+
+// 加载数据并渲染
+fetch(BASE + 'data.json')
+  .then(r => r.json())
+  .then(d => {
+    renderHeader(d);
+    renderKpi(d);
+    renderPrice(d);
+    renderBuyback(d);
+    renderProsus(d);
+    renderScenario(d);
+    renderPressure(d);
+    renderRegulatory(d);
+    renderQna(d);
+    renderReports(d);
+  })
+  .catch(err => {
+    document.querySelector('header').insertAdjacentHTML('beforeend',
+      `<div class="disclaimer" style="border-left-color:#f85149;background:rgba(248,81,73,0.1)">
+        <strong style="color:#f85149">数据加载失败</strong>：${err.message}<br>
+        若直接双击打开 HTML，浏览器会拦截 fetch。请在该目录运行 <code>python3 -m http.server 8080</code> 后访问
+        <code>http://localhost:8080/dashboard.html</code>，或通过 Quartz 站点访问。
+      </div>`);
+  });
+</script>
+</body>
+</html>
