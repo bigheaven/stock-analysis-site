@@ -62,6 +62,8 @@ openspec/        OpenSpec 工作流产物（变更提案、设计、规格、任
 - [[legendary-sell-too-early]] — 大佬"卖飞"五案全景复盘（孙正义/李泽楷/巴菲特/章建平）
 - [[sell-too-early-attribution-framework]] — 卖飞四型归因框架（被迫/纪律/从未信仰/止盈）+ 判别公式
 - [[sell-too-early-pre-sale-checklist]] — 12 条卖前自我拷问清单 + 陷阱提示（可打印贴在交易桌前）
+- [[niusan-signal-framework]] — 牛散信号过滤框架：分类/七步筛选/五种使用场景（牛散三角成果产物）
+- [[sell-too-early-pre-sale-checklist]] — 12 条卖前自我拷问清单 + 陷阱提示（可打印贴在交易桌前）
 
 ## 推荐阅读顺序
 
