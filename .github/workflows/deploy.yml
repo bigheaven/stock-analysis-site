@@ -41,6 +41,15 @@ jobs:
       - name: Build Quartz
         run: npx quartz build
 
+      - name: Copy dashboard HTML assets
+        run: |
+          find content -name "*.html" | while read f; do
+            dest="public/${f#content/}"
+            mkdir -p "$(dirname "$dest")"
+            cp "$f" "$dest"
+            echo "  ✓ $f → $dest"
+          done
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
