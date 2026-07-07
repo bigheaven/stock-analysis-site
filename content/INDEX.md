@@ -54,13 +54,20 @@ openspec/        OpenSpec 工作流产物（变更提案、设计、规格、任
 - [[retailer-trading-psychology]] — 散户交易心理偏差剖析 + 8 条可执行纪律 + 自我复盘模板
 - [[deep-value-vs-trap-checklist]] — A 股深度价值 vs 价值陷阱八维打分卡 + 三条一票否决 + 锚定纠偏规则
 
+### 投资思维框架
+- [[legendary-sell-too-early]] — 大佬"卖飞"五案全景复盘（孙正义/李泽楷/巴菲特/章建平）
+- [[sell-too-early-attribution-framework]] — 卖飞四型归因框架（被迫/纪律/从未信仰/止盈）+ 判别公式
+- [[sell-too-early-pre-sale-checklist]] — 12 条卖前自我拷问清单 + 陷阱提示（可打印贴在交易桌前）
+
 ## 推荐阅读顺序
 
 1. 先读 [[jingwei-tiandi-02477]] 了解事件全貌
 2. 再读 [[qian-fenglei]] 理解操盘人背景
 3. 然后读 [[hk-stock-ru-tong-ji-beng]] 提炼通用模式
 4. 把 [[hk-stock-red-flag-checklist]] 打印贴在交易桌前
-5. 最后定期重读 [[retailer-trading-psychology]] 校准心态
+5. 定期重读 [[retailer-trading-psychology]] 校准心态
+6. 卖出前走完 [[sell-too-early-pre-sale-checklist]] 的 12 条问题
+7. 心情不好的时候看 [[legendary-sell-too-early]]——大佬也卖飞，你不孤单
 
 ## 后续扩展
 
