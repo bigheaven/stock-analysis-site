@@ -2,7 +2,7 @@
 
 > **免责声明**：本框架为行为分析工具，不构成投资建议。跟踪他人持仓进行决策需自行承担风险。
 >
-> **关联产物**：[[deep-value-vs-trap-checklist]]（买前）、[[retailer-trading-psychology]]（持有中）、[[sell-too-early-pre-sale-checklist]]（卖前）、[[sell-too-early-attribution-framework]]（卖飞归因）
+> **关联产物**：[[deep-value-vs-trap-checklist-深度价值vs价值陷阱]]（买前）、[[retailer-trading-psychology]]（持有中）、[[sell-too-early-pre-sale-checklist]]（卖前）、[[sell-too-early-attribution-framework-卖飞归因框架]]（卖飞归因）
 
 ## 一、核心原则：你的结论 + 他的仓位 = 确认；只有他的仓位 = 跟风
 
@@ -183,11 +183,11 @@
 
 ## 相关双链
 
-- [[deep-value-vs-trap-checklist]] — 买前验证：深度价值 vs 价值陷阱
+- [[deep-value-vs-trap-checklist-深度价值vs价值陷阱]] — 买前验证：深度价值 vs 价值陷阱
 - [[hk-stock-red-flag-checklist]] — 买前避坑：港股 8 维度 red-flag
 - [[retailer-trading-psychology]] — 持有中心理纠偏
 - [[sell-too-early-pre-sale-checklist]] — 卖出前 12 条自我拷问
-- [[sell-too-early-attribution-framework]] — 卖飞四型归因
+- [[sell-too-early-attribution-framework-卖飞归因框架]] — 卖飞四型归因
 - [[ge-weidong]] — 葛卫东：产业信仰者（信号可用）
 - [[zhang-jianping]] — 章建平：纯博弈者（信号不可跟）
 - [[qian-fenglei]] — 钱峰雷：操纵者（信号远离）

@@ -2,7 +2,7 @@
 
 > **免责声明**：本清单为决策辅助工具，不构成投资建议。任何投资决策的风险由你自担。
 >
-> **关联框架**：[[sell-too-early-attribution-framework]]（四型归因）、[[legendary-sell-too-early]]（五案复盘）
+> **关联框架**：[[sell-too-early-attribution-framework-卖飞归因框架]]（四型归因）、[[legendary-sell-too-early]]（五案复盘）
 >
 > **使用建议**：打印贴在交易桌前。有卖出冲动时先走完这 12 条，再做决策。
 
@@ -33,7 +33,7 @@
 
 ## 第二级：卖因归类（5 条——你卖的真正原因是什么？）
 
-对照 [[sell-too-early-attribution-framework]] 的四型归类：
+对照 [[sell-too-early-attribution-framework-卖飞归因框架]] 的四型归类：
 
 ### 4. 我卖是因为缺现金吗？（被迫卖家）
 
@@ -58,7 +58,7 @@
 
 ### 7. 我卖是因为赚够了 / 有更好的机会吗？（止盈换仓者）
 
-□ 是 → 那个"更好的机会"有没有经过[[deep-value-vs-trap-checklist]]的独立验证？**不能因为手上有浮盈就降低新买入的标准。**
+□ 是 → 那个"更好的机会"有没有经过[[deep-value-vs-trap-checklist-深度价值vs价值陷阱]]的独立验证？**不能因为手上有浮盈就降低新买入的标准。**
 □ 不是 → 跳到第 8 条
 
 > ⚠️ **陷阱**："赚够了"本身不是问题——但"够"的标准是不是事后临时决定的？如果你当初设置的止盈线是 30%，现在到了 25% 你也想卖——你的标准在移动，这是"够不够"的错觉，不是当初的纪律。章建平赚了 56 亿才走的——你有没有赚那么多？如果你只赚了 20% 就"够了"，那可能是恐惧，不是满足。
@@ -116,10 +116,10 @@
 
 ## 相关双链
 
-- [[sell-too-early-attribution-framework]] — 四型归因 + 判别公式
+- [[sell-too-early-attribution-framework-卖飞归因框架]] — 四型归因 + 判别公式
 - [[legendary-sell-too-early]] — 五案全景复盘
 - [[retailer-trading-psychology]] — 散户交易心理与 8 条纪律
-- [[deep-value-vs-trap-checklist]] — 买入前八维验证
+- [[deep-value-vs-trap-checklist-深度价值vs价值陷阱]] — 买入前八维验证
 - [[hk-stock-red-flag-checklist]] — 港股避坑清单
 - [[06-tencent-trading-strategy]] — 腾讯仓位管理具体实例
 

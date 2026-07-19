@@ -1,90 +1,176 @@
 # 股票研究库 · 索引
 
-> 本知识库以经纬天地（HK 02477）暴跌事件为切入点，逐步扩展为覆盖港股操纵识别、个股深度研判、A 股深度价值与价值陷阱的可复用研究体系。
+> 本知识库从经纬天地暴跌事件起步，逐步扩展为覆盖周期股、高股息、主题赛道、行为金融的完整研究体系。
 >
-> **数据截止日期**：2026-07-05
+> **数据截止日期**：2026-07-19
 >
 > **免责声明**：所有内容基于公开信息整理，不构成投资建议。
+
+---
 
 ## 目录结构
 
 ```
-case-studies/    个案深度复盘
-operators/       操盘手人物档案
-patterns/        操纵模式归纳与同期案例库
-playbooks/       可执行避坑清单与心理纪律
-_templates/      报告头尾模板
-openspec/        OpenSpec 工作流产物（变更提案、设计、规格、任务）
+stocks/              个股与行业研究
+  mining-矿业/         锂/钴/稀土/铜金（五只周期矿企）
+  banks-银行/          工/建/交/招 四行对比
+  tiegongji-铁公基/     中车/中铁/铁建 基建三兄弟
+  brokers-券商/        券商行业概览（中信/华泰/东财/中金）
+  robotics-机器人/      人形机器人产业链（整机+六大供应链环节）
+  001248-huarun-华润新能源/   绿电央企 IPO 复盘
+  0700-tencent-腾讯控股/      腾讯七问七答
+  300760-mindray-迈瑞医疗/    迈瑞五线深挖
+  3690-meituan-美团/          美团四线竞争
+  601318-pingan-中国平安/     金融周期股
+  688825-changxin-长鑫存储/    DRAM 国产独苗
+  688981-smic-中芯国际/       晶圆代工 IPO 复盘
+
+case-studies/          个案深度复盘
+operators/             操盘手人物档案
+patterns/              操纵模式归纳与案例库
+playbooks/             可复用框架与清单
+_templates/            报告头尾模板
+openspec/              OpenSpec 工作流产物
 ```
 
-## 报告入口
+---
 
-### 个案复盘
-- [[jingwei-tiandi-02477]] — 经纬天地（HK 02477）2026/5/21 单日 -83.16% 暴跌事件全周期复盘
+## 一、周期股与矿业
 
-### 个股深度研判
-- [[00-tencent-seven-questions-summary]] — 腾讯控股（0700.HK）七问七答总纲（回购/基本面/估值/历次大跌/Prosus/买卖策略）
-  - [[01-tencent-fundamentals]] — 基本面评估：印钞机仍在转，钱被 AI 黑洞吸走
-  - [[02-tencent-buyback-price-divergence]] — 3000 亿回购为何托不住 400 出头的股价
-  - [[03-tencent-crash-history]] — 2022 破 200、2024 见 260、2026 跌至 420 三次大跌对比
-  - [[04-tencent-valuation]] — PE 14 倍是低估还是价值陷阱
-  - [[05-tencent-prosus-overhang]] — Prosus/Naspers 减持专题与 Kold 加速催化
-  - [[06-tencent-trading-strategy]] — 分批建仓区间、止损纪律、买入前检查清单
-- [[saic-600104]] — 上汽集团（600104.SH）深度价值案例分析：机会还是陷阱（存量vs流量 / 232亿减值真相 / JV拐点 / 尚界期权 / 同业八维对比 / 重组研判 / 仓位纪律）
-- [[00-mindray-summary]] — 迈瑞医疗（300760.SZ）五线深挖总纲：5835亿→1700亿跌因 + 当前价买入持有6月-3年会不会亏太多
-  - [[01-mindray-ivd-volume-price-tradeoff]] — IVD集采"以价换量"临界点方程：53%降价下量需增速多少才能跑通
-  - [[02-mindray-overseas-quality]] — 海外业务含金量：占比53%首超国内、Q1加速+15.7%、关税敏感性
-  - [[03-mindray-domestic-cycle-bottom]] — 国内To G周期底研判：先行指标已转正、大概率2026中-2027见底
-  - [[04-mindray-valuation-floor]] — 估值底：20x PE能否守住、三档情景估值带、商誉减值风险
-  - [[05-mindray-insider-signal]] — 高管增减持真实信号：减持百亿vs增持2.4亿的不对称结构
-  - [[06-mindray-hold-period-risk]] — 6月-3年持有期风险与交易策略：3×3价位矩阵、分批建仓、止损纪律
+### 矿业五巨头（mining-矿业/）
 
-### 操盘手档案
-- [[qian-fenglei]] — 钱峰雷（"钱多多"）人物档案与资本运作手法图谱
-- [[ge-weidong]] — 葛卫东（"东邪"）从 10 万到 300 亿的进化路径、投资哲学与散户可复制性分析
-- [[zhang-jianping]] — 章建平（"章盟主"）游资泰山北斗：5 万到百亿的博弈人生、家族一致行动人与 8 条游资语录
+| 标的 | 核心逻辑 | 适合 |
+|------|----------|------|
+| [[mining-矿业/002460-ganfeng-赣锋锂业/00-ganfeng-overview\|赣锋锂业]] | 全产业链锂业，固态电池期权 | 博锂价+成长 |
+| [[mining-矿业/002466-tianqi-天齐锂业/00-tianqi-overview\|天齐锂业]] | 格林布什矿成本全球最低，毛利率63% | 博锂价弹性 |
+| [[mining-矿业/603799-huayou-华友钴业/00-overview\|华友钴业]] | 镍钴双核，硫磺断供+宁德翻脸双重风险 | 超高弹性博弈 |
+| [[mining-矿业/601899-zijin-紫金矿业/00-overview\|紫金矿业]] | 铜金多品种，产量驱动穿越周期 | 收息+成长 |
+| [[mining-矿业/600111-beifang-北方稀土/00-overview\|北方稀土]] | 全球稀土垄断（配额70%），毛利率仅13% | 趋势投资 |
 
-> **牛散三角**：[[qian-fenglei]]（操纵者·最不可学）→ [[zhang-jianping]]（纯博弈者·部分可学）→ [[ge-weidong]]（产业信仰者·最可学）
+**行业报告**：[[mining-矿业/锂行业2026年供需格局与价格展望_天齐赣锋竞争分析\|锂行业2026年深度报告（Alice）]]
 
-### 操纵模式归纳
-- [[hk-stock-ru-tong-ji-beng]] — 港股"入通即崩"五阶段通用模型 + 同期 5 案例库 + 港股通机制短板分析
+### 跟踪框架
 
-### 价值陷阱模式归纳
+- [[lithium-cycle-tracker-锂业周期跟踪]] — 锂行业三层指标体系（价格/库存/CAPEX/机构分歧）
+- [[humanoid-robot-tracker-人形机器人跟踪]] — 人形机器人产业链地图 + 催化剂日历
 
-- [[jv-cashcow-collapse]] — 合资现金牛瓦解五阶段模型 + 上汽/广汽对照 + 结构性vs周期性判别 + 6 条识别信号
+---
 
-### 避坑清单与心理纪律
-- [[hk-stock-red-flag-checklist]] — 港股买入前 8 维度 red-flag 打分卡 + 30 秒快速版
-- [[retailer-trading-psychology]] — 散户交易心理偏差剖析 + 8 条可执行纪律 + 自我复盘模板
-- [[deep-value-vs-trap-checklist]] — A 股深度价值 vs 价值陷阱八维打分卡 + 三条一票否决 + 锚定纠偏规则
+## 二、高股息防守资产
 
-### 投资思维框架
-- [[legendary-sell-too-early]] — 大佬"卖飞"五案全景复盘（孙正义/李泽楷/巴菲特/章建平）
-- [[sell-too-early-attribution-framework]] — 卖飞四型归因框架（被迫/纪律/从未信仰/止盈）+ 判别公式
-- [[sell-too-early-pre-sale-checklist]] — 12 条卖前自我拷问清单 + 陷阱提示（可打印贴在交易桌前）
-- [[niusan-signal-framework]] — 牛散信号过滤框架：分类/七步筛选/五种使用场景（牛散三角成果产物）
-- [[sell-too-early-pre-sale-checklist]] — 12 条卖前自我拷问清单 + 陷阱提示（可打印贴在交易桌前）
+### 铁公基（tiegongji-铁公基/）
+
+| 标的 | 股息率 | 核心逻辑 | 适合 |
+|------|--------|----------|------|
+| [[tiegongji-铁公基/601766-crrc-中国中车/00-overview\|中国中车]] | 5.71% | 高铁100%垄断，分红十年增长 | ✅ 收息首选 |
+| [[tiegongji-铁公基/601390-crec-中国中铁/00-overview\|中国中铁]] | ~6%(A)/2.6%(H) | 应收款658亿，派息率仅18% | ⚠️ 博反转 |
+| [[tiegongji-铁公基/601186-crcc-中国铁建/00-overview\|中国铁建]] | 4.3%(A)/6.4%(H) | 分红率在改善，现金流转正 | 🟡 次选 |
+
+### 银行（banks-银行/）
+
+| 标的 | 股息率 | 核心逻辑 |
+|------|--------|----------|
+| [[banks/601398-icbc-工商银行/00-overview\|工商银行]] | ~4.2% | 五大行，五次危机史，政策兜底 |
+| 建设银行 | ~4% | 同工行，PB修复已基本走完 |
+
+> **完整横评**：[[banks/601398-icbc-工商银行/00-overview\|工行概览（含四行+招行+中车+平安全量对比）]]
+
+### 其他高股息
+
+| 标的 | 股息率 | 核心逻辑 |
+|------|--------|----------|
+| [[601318-pingan-中国平安/00-overview\|中国平安]] | 5.3% | 金融周期股，连续14年分红增长 |
+
+---
+
+## 三、主题赛道
+
+### 人形机器人（robotics-机器人/）
+
+| 文件 | 内容 |
+|------|------|
+| [[robotics/00-industry-map\|产业链全景]] | 整机厂对比 + 价值分布 + 竞争格局 |
+| [[robotics/01-supply-chain\|供应链深度]] | 六大环节（执行器/丝杠/减速器/电机/传感器/灵巧手）+ 九只逐家调研 |
+| [[robotics/002050-sanhua-三花智控/00-overview\|三花智控]] | T链执行器总成，$6.85亿订单 |
+| [[robotics/688585-shangweixincai-上纬新材/00-overview\|上纬新材]] | 智元机器人的"壳" |
+| [[robotics/9880-youbixuan-优必选/00-overview\|优必选]] | 港股唯一整机标的 |
+| [[robotics/yushu-宇树科技/00-overview\|宇树科技]] | 全球人形出货#1，IPO注册已获批 |
+
+### 半导体
+
+| 标的 | 核心逻辑 |
+|------|----------|
+| [[688825-changxin-长鑫存储/00-overview\|长鑫存储]] | DRAM 国产唯一，巨型 IPO vs 中石油 |
+| [[688825-changxin-长鑫存储/01-cycle-ipo-analysis\|长鑫 IPO 周期分析]] | 存储超级周期 + 三大巨型 IPO 对比 |
+| [[688981-smic-中芯国际/00-overview\|中芯国际]] | 制裁突围，14nm→5nm 的极限进化 |
+| [[688981-smic-中芯国际/01-ipo-history\|中芯 IPO 复盘]] | 2020 上市全程复盘 + 四大 IPO 横比 |
+
+### 互联网平台
+
+| 标的 | 核心逻辑 |
+|------|----------|
+| [[3690-meituan-美团/00-meituan-overview\|美团 概览]] | 外卖/到店/即时零售/出海 四线作战 |
+| [[3690-meituan-美团/01-meituan-timeline\|美团 股价复盘]] | 460→63→83 六大阶段 |
+| [[3690-meituan-美团/02-meituan-competition\|美团 竞争地图]] | vs 阿里/京东/抖音，KeeTa 出海 |
+
+### 券商（brokers-券商/）
+
+| 文件 | 内容 |
+|------|------|
+| [[brokers-券商/00-overview\|券商股概览]] | 牛市旗手，银行是盾、券商是矛 |
+
+### 绿电
+
+| 标的 | 核心逻辑 |
+|------|----------|
+| [[001248-huarun-华润新能源/00-overview\|华润新能源]] | 深市最大 IPO，136号文，15天腰斩 |
+| [[001248-huarun-华润新能源/01-valuation-cycle\|华润新能源 估值分析]] | IPO 复盘 + 利润下滑拆解 |
+
+---
+
+## 四、行为金融框架
+
+| 框架 | 内容 |
+|------|------|
+| [[bubble-anatomy-framework-泡沫解剖框架\|泡沫解剖框架]] | 中石油2007/中车2015/抱团2021/长鑫2026 四轮完整对照 |
+| [[cycle-growth-spectrum-framework-周期光谱框架\|周期光谱框架]] | 渗透率+CAPEX+壁垒 三指标 → 五段光谱 |
+| [[cycle-vs-growth-investing-周期与成长投资\|周期vs成长投资]] | 理论基底（视频文案全文） |
+| [[deep-value-vs-trap-checklist-深度价值vs价值陷阱\|深度价值vs价值陷阱]] | 八维打分卡 + 三条一票否决 |
+| [[sell-too-early-attribution-framework-卖飞归因框架\|卖飞归因框架]] | 四型归因 + 判别公式 |
+| [[sell-too-early-pre-sale-checklist-卖出前检查清单\|卖出前检查清单]] | 12 条卖前自我拷问 |
+
+---
+
+## 五、操盘手档案（operators/）
+
+| 人物 | 标签 |
+|------|------|
+| [[qian-fenglei-钱丰雷]] | 钱多多，操纵者·最不可学 |
+| [[zhang-jianping-张建平]] | 章盟主，纯博弈者·部分可学 |
+| [[ge-weidong-葛卫东]] | 东邪，产业信仰者·最可学 |
+
+> **牛散三角**：钱丰雷（操纵者）→ 章建平（博弈者）→ 葛卫东（信仰者）
+
+---
+
+## 六、研究工具
+
+本知识库使用三个互补工具进行协作研究：
+
+| 工具 | 定位 | 用途 |
+|------|------|------|
+| **IMA 知识库** | 发现引擎 | 搜订阅知识库研报标题，了解市场上有什么报告 |
+| **Tavily 网络搜索** | 桥接器 | 拿研报标题去公开网络搜实际内容 |
+| **Wind Alice** | 数据终端 | 实时行情 + 财务数据 + 深度分析报告 |
+
+> 详见项目 `CLAUDE.md` 中的"Available Tools & Skills"章节
+
+---
 
 ## 推荐阅读顺序
 
-1. 先读 [[jingwei-tiandi-02477]] 了解事件全貌
-2. 再读 [[qian-fenglei]] 理解操盘人背景
-3. 然后读 [[hk-stock-ru-tong-ji-beng]] 提炼通用模式
-4. 把 [[hk-stock-red-flag-checklist]] 打印贴在交易桌前
-5. 定期重读 [[retailer-trading-psychology]] 校准心态
-6. 卖出前走完 [[sell-too-early-pre-sale-checklist]] 的 12 条问题
-7. 心情不好的时候看 [[legendary-sell-too-early]]——大佬也卖飞，你不孤单
-
-## 后续扩展
-
-- 新增港股操纵案例 → 在 `case-studies/` 下新建 .md，链接到既有 operator/pattern
-- 新增操盘手档案 → 在 `operators/` 下新建 .md
-- 新增操纵模式 → 在 `patterns/` 下新建 .md
-- 新增交易纪律/心理 → 在 `playbooks/` 下新建 .md
-
-OpenSpec 变更提案位置：
-
-- `openspec/changes/jingwei-tiandi-stock-analysis/` — 港股操纵案例研究
-- `openspec/changes/tencent-stock-deep-analysis/` — 腾讯七问七答
-- `openspec/changes/saic-stock-deep-analysis/` — 上汽深度价值与价值陷阱框架
-- `openspec/changes/mindray-stock-deep-analysis/` — 迈瑞五线深挖 + 持有期风险研判
+1. [[bubble-anatomy-framework-泡沫解剖框架\|泡沫解剖框架]] — 先理解泡沫，再理解个股
+2. [[cycle-growth-spectrum-framework-周期光谱框架\|周期光谱框架]] — 学会给股票分类
+3. 按你感兴趣的板块选择：矿业 → 银行 → 铁公基 → 机器人 → 半导体
+4. [[deep-value-vs-trap-checklist-深度价值vs价值陷阱\|深度价值vs价值陷阱]] — 买入前的最后检查
+5. [[operators/ge-weidong-葛卫东\|葛卫东]] — 从 10 万到 300 亿，最可学的投资哲学
